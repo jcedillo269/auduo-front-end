@@ -1,6 +1,5 @@
 import React from 'react';
 import { Component } from 'react'
-import logo from './logo.svg';
 import './App.css';
 import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
@@ -48,7 +47,7 @@ class LoginSpotify extends Component { //react component names must start with c
   render () {
     return(
       <div className = "loginSpotify">
-        <a href="http://localhost:8888/login" style = {{color: SpotifyTextColor, fontSize: '25px'}}> Spotify Login Button</a>
+        <a href="https://auduo-backend.herokuapp.com/login" style = {{color: SpotifyTextColor, fontSize: '25px'}}> Spotify Login Button</a>
       </div>
     );
   }
@@ -90,7 +89,7 @@ class App extends Component {
       <div className="App">
 
 
-        <h1 style={customeStyle}>Hello, {name}</h1>
+        <h1 style={customeStyle}>Welcome, {name}</h1>
         <LoginSpotify/>
 
         
