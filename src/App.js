@@ -48,7 +48,7 @@ class LoginSpotify extends Component { //react component names must start with c
   render () {
     return(
       <div className = "loginSpotify">
-        <a href="http://localhost:8888" style = {{color: SpotifyTextColor, fontSize: '25px'}}> Spotify Login Button</a>
+        <a href="http://localhost:8888/login" style = {{color: SpotifyTextColor, fontSize: '25px'}}> Spotify Login Button</a>
       </div>
     );
   }
