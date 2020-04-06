@@ -2,7 +2,9 @@ import React from 'react';
 import { Component } from 'react'
 import './App.css';
 import SpotifyWebApi from 'spotify-web-api-js';
+import queryString from 'query-string';
 const spotifyApi = new SpotifyWebApi();
+
 
 let SpotifyTextColor = '#1DB954'
 
@@ -62,35 +64,101 @@ class App extends Component {
     super();
     this.state = {
       loggedIn: false,
-      token: ''
+      token: 'null',
+      userInfo: {name: 'Stranger', img: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png'},
+      playlists: '' //empty playlists array?
     }
   }
 
-  checkToken(){
-    console.log('Called CHeck Token')
-    if(SpotifyData.data.loggedIn){
-      console.log('True logged in')
+  componentDidMount(){
+    let result = queryString.parse(window.location.search)
+    console.log('Token in didMount: ', result.access_token)
+    let accessToken = result.access_token
+    if(accessToken){
+      spotifyApi.setAccessToken(accessToken)
+      
+      this.setState({
+        loggedIn: true,
+        token: accessToken
+      })    
+      this.getUserInfo()  
+      this.getUserPlaylists()
+    }
+    
+  }
+
+  getUserPlaylists(){
+    spotifyApi.getUserPlaylists()
+    .then((response) => {
+      console.log(response)
+      this.setState({
+        playlists: response
+      })
+      console.log(this.state.playlists)
+      this.state.playlists.items.forEach(Element => {
+        console.log(Element.name)
+      });
+
+
+
+
+
+    })
+  }
+
+  getUserInfo(){
+    spotifyApi.getMe()
+    .then((response) => {
       this.setState(
         {
-          loggedIn: true,
-          token: SpotifyData.data.token
+          userInfo:{
+            name: response.display_name,
+
+            img: response.images[0] ?  response.images[0].url : 'https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png'
+          }
         }
-      );
-    }else{
-      console.log('False')
-    }
+      )
+    })
   }
 
 
   render() {
-    let name = 'Jacob'
-    let customeStyle = { color: '#61dbfb', fontSize: '100px'}
+    /*let name = 'Jacob' */
+    let customeStyle = { color: '#61dbfb', fontSize: '100px', display: 'inline-block'}
     return (
       <div className="App">
 
 
-        <h1 style={customeStyle}>Welcome, {name}</h1>
-        <LoginSpotify/>
+        <h1 style={customeStyle}>Welcome, {this.state.userInfo.name }</h1>
+        <img src={this.state.userInfo.img} style = {{height: 125, paddingLeft: '15px'}}/>        
+        {this.state.loggedIn ? 
+          <div>
+            <p style={{color:'white'}}>Logged In: {this.state.token}</p> 
+            {this.state.playlists &&
+              <div>
+                <p style={{color: 'white', fontSize: '25px'}}>Got users playlists</p>
+                <ul style = {{color: 'white', fontSize: '20px', listStyle: 'none'}}>
+                  {
+                    this.state.playlists.items.map(pl => 
+                    <li>{pl.name}</li>
+                    )
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+          : 
+          <div>
+            <button
+              onClick = {() => window.location = 'https://auduo-backend.herokuapp.com/login'} 
+              style = {{padding: '20px', 'margin-top': '20px', background:SpotifyTextColor, color:'white', fontSize: '20px' }}> 
+              Sign in with Spotify
+            </button>
+          </div>
+      
+      
+      
+        }
 
         
 
