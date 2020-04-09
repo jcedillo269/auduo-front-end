@@ -418,7 +418,7 @@ class App extends Component { //main component
           : //else if the user is not logged in print the the code below
           <div>
             <button //spotify login button
-              onClick = {() => window.location = 'http://localhost:8888/login'} 
+              onClick = {() => window.location = 'https://auduo-backend.herokuapp.com/login'} 
               style = {{padding: '20px', 'margin-top': '20px', background:SpotifyTextColor, color:'white', fontSize: '20px' }}> 
               Sign in with Spotify
             </button>
