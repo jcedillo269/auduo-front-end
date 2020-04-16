@@ -15,18 +15,30 @@ body {
     font-size: 20px;
 }
 
+
 /* control the left portion */
 .split {
   height: 100%;
-  width: 20%;
-  background-color: gray;
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
   overflow-x: hidden;
   padding-top: 3%;
 }
+
+/* control the left portion */
+.left {
+	left: 0;
+	width: 20%;
+	background-color: gray;
+}
+
+/* control the right portion */
+.right {
+	right: 0;
+	width: 80%;
+}
+
 
 /* ====== button stuff  ====== */
 /* this is what does the sliding hover motion */
@@ -43,7 +55,7 @@ border: 4px solid #fff;
 border-radius: 10px;
 color: #fff;
 display: block;
-font-size: 0.75em;
+/*font-size: 0.3em;*/ /* I made the font bigger :O*/
 font-weight: bold;
 margin: 10px auto;
 padding: 2em 6em;
