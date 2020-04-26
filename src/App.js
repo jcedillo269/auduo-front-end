@@ -150,7 +150,7 @@ class Input extends Component{ //component made by Maggie that calls the MusixMa
                       className="form-control form-control-lg" 
                       placeholder=" Translation Language" 
                       name="Language" 
-                      value={this.state.Language.toLowerCase}
+                      value={this.state.Language.toLowerCase()}
                       onChange={this.onChangeL.bind(this)} 
                       style={{marginLeft: '13.5%', width: '20%', fontSize: '20px', fontFamily: 'Questrial, sans-serif', height: '40px', 'borderRadius': '10px'}}
                   />
