@@ -98,7 +98,7 @@ class Input extends Component{ //component made by Maggie that calls the MusixMa
       songLyrics: lyrics,
       transLanguage: lang
     })
-    var langs = ['Afrikaans', 'Albanian', 'Amharic', 'Arabic', 'Armenian', 'Azerbaijan', 'Bashkir', 'Basque', 'Belarusian', 'Bengali', 'Bosnian', 'Bulgarian', 'Burmese', 'Catalan', 'Cebuano', 'Chinese', 'Croatian', 'Czech', 'Danish', 'Dutch', 'English', 'Esperanto', 'Estonian', 'Finnish', 'French', 'Galician', 'Georgian', 'German', 'Greek', 'Gujarati', 'Haitian', 'Creole', 'Hebrew', 'Hill Mari', 'Hindi', 'Hungarian', 'Icelandic', 'Indonesian', 'Irish', 'Italian', 'Japanese', 'Javanese', 'Kannada', 'Kazakh', 'Khmer', 'Korean', 'Kyrgyz', 'Laotian', 'Latin', 'Latvian', 'Lithuanian', 'Luxembourgish', 'Macedonian', 'Malagasy', 'Malay', 'Malayalam', 'Maltese', 'Maori', 'Marathi', 'Mari', 'Mongolian', 'Nepali', 'Norwegian', 'Papiamento', 'Persian', 'Polish', 'Portuguese', 'Punjabi', 'Romanian', 'Russian', 'Scottish', 'Serbian', 'Sinhala', 'Slovakian', 'Slovenian', 'Spanish', 'Sundanese', 'Swahili', 'Swedish', 'Tagalog', 'Tajik', 'Tamil', 'Tatar', 'Telugu', 'Thai', 'Turkish', 'Udmurt', 'Ukrainian', 'Urdu', 'Uzbek', 'Vietnamese', 'Welsh', 'Xhosa', 'Yiddish']
+    var langs = ['afrikaans', 'albanian', 'amharic', 'arabic', 'armenian', 'azerbaijan', 'bashkir', 'basque', 'belarusian', 'bengali', 'bosnian', 'bulgarian', 'burmese', 'batalan', 'cebuano', 'chinese', 'croatian', 'czech', 'danish', 'dutch', 'english', 'esperanto', 'estonian', 'finnish', 'french', 'galician', 'georgian', 'german', 'greek', 'gujarati', 'haitian', 'creole', 'hebrew', 'hill mari', 'hindi', 'hungarian', 'icelandic', 'indonesian', 'irish', 'italian', 'japanese', 'javanese', 'kannada', 'kazakh', 'khmer', 'korean', 'kyrgyz', 'laotian', 'latin', 'latvian', 'lithuanian', 'luxembourgish', 'macedonian', 'malagasy', 'malay', 'malayalam', 'maltese', 'maori', 'marathi', 'mari', 'mongolian', 'nepali', 'norwegian', 'papiamento', 'persian', 'polish', 'portuguese', 'punjabi', 'romanian', 'russian', 'scottish', 'serbian', 'sinhala', 'slovakian', 'slovenian', 'spanish', 'sundanese', 'swahili', 'swedish', 'tagalog', 'tajik', 'tamil', 'tatar', 'telugu', 'thai', 'turkish', 'udmurt', 'ukrainian', 'urdu', 'uzbek', 'vietnamese', 'welsh', 'xhosa', 'yiddish']
     var abrev = ['af', 'sq', 'am', 'ar', 'hy', 'az', 'ba', 'eu', 'be', 'bn', 'bs', 'bg', 'my', 'ca', 'ceb', 'zh', 'hr', 'cs', 'da', 'nl', 'en', 'eo', 'et', 'fi', 'fr', 'gl', 'ka', 'de', 'el', 'gu', 'ht', 'ht', 'he', 'mrj', 'hi', 'hu', 'is', 'id', 'ga', 'it', 'ja', 'jv', 'kn', 'kk', 'km', 'ko', 'ky', 'lo', 'la', 'lv', 'lt', 'lb', 'mk', 'mg', 'ms', 'ml', 'mt', 'mi', 'mr', 'mhr', 'mn', 'ne', 'no', 'pap', 'fa', 'pl', 'pt', 'pa', 'ro', 'ru', 'gd', 'sr', 'si', 'sk', 'sl', 'es', 'su', 'sw', 'sv', 'tl', 'tg', 'ta', 'tt', 'te', 'th', 'tr', 'udm', 'uk', 'ur', 'uz', 'vi', 'cy', 'xh', 'yi']              
     var loc = langs.indexOf(lang);
     lang = abrev[loc];
@@ -150,7 +150,7 @@ class Input extends Component{ //component made by Maggie that calls the MusixMa
                       className="form-control form-control-lg" 
                       placeholder=" Translation Language" 
                       name="Language" 
-                      value={this.state.Language}
+                      value={this.state.Language.toLowerCase}
                       onChange={this.onChangeL.bind(this)} 
                       style={{marginLeft: '13.5%', width: '20%', fontSize: '20px', fontFamily: 'Questrial, sans-serif', height: '40px', 'borderRadius': '10px'}}
                   />
